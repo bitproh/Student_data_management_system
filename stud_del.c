@@ -55,3 +55,18 @@ void stud_del(SLL **ptr)
     else
     printf("Invalid input");
 }
+
+void stud_del_all(SLL **ptr){
+    if(*ptr==0){
+        printf("No records found\n");
+        return;
+    }
+    SLL *curr=*ptr,*temp;
+    while(curr){
+        temp=curr->next;
+        free(curr);
+        curr=temp;
+    }
+    *ptr=NULL;
+    printf("All records deleted\n");
+}
